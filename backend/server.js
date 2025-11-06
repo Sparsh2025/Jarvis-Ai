@@ -6,7 +6,7 @@ const initiServer=require('./src/socket/socket')
 
 connectDB()
 initiServer(httpServer)
-
-httpServer.listen(3000,()=>{
+const PORT = process.env.PORT || 3000;
+httpServer.listen(PORT,()=>{
     console.log("server started")
 })
