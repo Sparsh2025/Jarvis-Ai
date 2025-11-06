@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
+import { backendApi } from "../config";
 
 const ChatWindow = ({ chat, activeChat }) => {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
   const socketRef = useRef(null);
-  const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-  const backendApi=import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
-  //  Initialize socket once
+ 
   useEffect(() => {
-    socketRef.current = io(SOCKET_URL, { withCredentials: true });
+    socketRef.current = io(backendApi, { withCredentials: true });
     return () => socketRef.current.disconnect();
   }, []);
 

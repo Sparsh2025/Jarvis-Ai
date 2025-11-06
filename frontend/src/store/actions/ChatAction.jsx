@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { loadChat } from '../Slice/ChatSlice'
-const backendApi=import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
+import { backendApi } from '../../config'
 
 export const createChat=(data)=>async(dispatch)=>{
  try {
