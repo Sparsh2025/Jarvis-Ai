@@ -7,10 +7,11 @@ const ChatWindow = ({ chat, activeChat }) => {
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
   const socketRef = useRef(null);
-
+  const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const backendApi=import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
   //  Initialize socket once
   useEffect(() => {
-    socketRef.current = io("http://localhost:3000", { withCredentials: true });
+    socketRef.current = io(SOCKET_URL, { withCredentials: true });
     return () => socketRef.current.disconnect();
   }, []);
 
@@ -20,7 +21,7 @@ const ChatWindow = ({ chat, activeChat }) => {
       if (!activeChat?._id) return;
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/message/${activeChat._id}`,
+          backendApi+`/api/message/${activeChat._id}`,
           { withCredentials: true }
         );
         // Keep messages as received from DB

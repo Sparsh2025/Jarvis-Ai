@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getChats } from './ChatAction'
 
-const backendApi=import.meta.env.VITE_BACKEND_URL
+const backendApi=import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
 
 export const registerUser=async(data,navigate,setloading)=>{
     setloading(true)
