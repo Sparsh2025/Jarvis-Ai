@@ -8,7 +8,8 @@ const { vectorStore, queryVector } = require("../service/vectordb.service");
 
 function initiServer(httpServer){
 const io = new Server(httpServer, {  cors: {
-            origin: "http://localhost:5173",
+            origin: "https://jarvis-ai-390d.onrender.com",
+            methods: ["GET", "POST"],
             credentials: true
         } });
 io.use(async(socket,next)=>{
