@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b1220;
+  --panel: #0f1724;
+  --muted: #9aa4b2;
+  --accent: #10b981;
+}
+
+body {
+  background: var(--bg);
+  color: #e6eef6;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #131826;
+  border-radius: 999px;
+}
