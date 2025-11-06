@@ -6,7 +6,7 @@ const cookieParser=require('cookie-parser')
 const cors=require('cors')
 const app=express()
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://jarvis-ai-390d.onrender.com",
     credentials:true
 }))
 app.use(cookieParser())
