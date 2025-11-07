@@ -22,7 +22,12 @@ async function authRegister(req,res){
         password:bcryptPassword
     })
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET)
-    res.cookie('token',token)
+   res.cookie("token", token, {
+          httpOnly: true,
+          secure: true,    
+         sameSite: "none",   
+});
+
     res.status(201).json({
         message:"user created",
         user
@@ -51,7 +56,11 @@ async function authLogin(req,res){
         })
     }
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET)
-    res.cookie('token',token)
+    res.cookie("token", token, {
+          httpOnly: true,
+          secure: true,    
+         sameSite: "none",   
+       });
     res.status(200).json({
         message:"login success",
         user
@@ -60,7 +69,12 @@ async function authLogin(req,res){
 
  function logout(req,res){
   try { 
-      res.clearCookie("token");
+       res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",   
+      path: "/",       
+    });
 
     return res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
