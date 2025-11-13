@@ -26,7 +26,7 @@ Jarvis can remember past conversations using a **Pinecone vector database** and 
 
 | Category | Technologies |
 |-----------|--------------|
-| **Frontend** | React.js, Axios, Context API |
+| **Frontend** | React.js, Axios, Redux |
 | **Backend** | Node.js, Express.js, Socket.IO |
 | **Database** | MongoDB, Pinecone (Vector DB) |
 | **AI Integration** | Gemini API (LLM endpoint) |
